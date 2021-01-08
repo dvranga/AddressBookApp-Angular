@@ -155,8 +155,8 @@ error-output {
 .submit-reset {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-bottom: 40px;
+  justify-content: flex-end;
+  margin-right: 110px;
 }
 
 .button {
@@ -215,4 +215,13 @@ error-output {
   letter-spacing: 0px;
   color: #42515f;
   opacity: 1;
+}
+
+.update:hover {
+  color: #ffffff;
+  background-color: #008cff;
+}
+.submit:hover {
+  color: #ffffff;
+  background-color: #008cff;
 }

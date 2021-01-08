@@ -84,10 +84,10 @@
                 </mat-error>
             </div>
                 <div class="submit-reset">
-                    <button type="button"  class="resetButton button reset"  (click)="reset()">Reset</button>
-                    <div style="margin-left: 10px;"></div>
                     <button type="submit" class="button submitButton submit" *ngIf="!isEdit" id="submitButton" (click)="register()">Add</button>
-                    <button class = "update" *ngIf="isEdit" mat-raised-button color="primary" (click)="update()">Update</button>
+                    <button class = "update button submitButton submit" *ngIf="isEdit" mat-raised-button color="primary" (click)="update()">Update</button>
+                    <div style="margin-left: 10px;"></div>
+                    <button type="button"  class="resetButton button reset"  (click)="reset()">Reset</button>
                 </div>
         </mat-card>
     </div>
