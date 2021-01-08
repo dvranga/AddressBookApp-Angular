@@ -1,0 +1,71 @@
+<body>
+    <header class="header-content header">
+        <div class="logo-content">
+            <img src="../assets/images/addressbook.jpeg" alt="">
+            <div>
+                <span class="add-text">ADDRESS</span><br>
+                <span class="add-text address-book">BOOK</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="header-content">
+            <div class="emp-detail-text table-hdr">
+                Person Details <div class="emp-count">{{this.numberOfContacts}}</div>
+            </div>
+            <a [routerLink]="['/create-address']" routerLinkActive="router-link-active"  class="add-button">
+            <img src="../assets/icons/add-24px.svg" alt="">Add User</a>
+        </div>
+
+
+            <table mat-table [dataSource]="contacts" class="mat-elevation-z8" style="width: 80%; margin-left: 150px;">
+            
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef style="height: 48px;"> Name </th>
+                    <td mat-cell *matCellDef="let element" style="height: 48px;"> {{element.name}} </td>
+                  </ng-container>
+            
+                <ng-container matColumnDef="mobile">
+                  <th mat-header-cell *matHeaderCellDef> Mobile </th>
+                  <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="address">
+                  <th mat-header-cell *matHeaderCellDef> Address </th>
+                  <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="city">
+                  <th mat-header-cell *matHeaderCellDef> City </th>
+                  <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="state">
+                  <th mat-header-cell *matHeaderCellDef> State</th>
+                  <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="zip">
+                  <th mat-header-cell *matHeaderCellDef> Zip </th>
+                  <td mat-cell *matCellDef="let element"> {{element.zip}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Action </th>
+                  <td mat-cell *matCellDef="let element">        
+                    <div fxLayout="row" dir="ltr" fxLayoutGap="3%">
+                    <img src="../../../assets/icons/create-black-18dp.svg" alt="" [routerLink]="['/create-address', element.id]">
+                    <img src="../../../assets/icons/delete-black-18dp.svg" alt="" (click)="deleteContact(element.id)">
+                    </div>
+                  </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+
+    </div>
+    
+</body>

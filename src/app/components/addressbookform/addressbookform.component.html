@@ -1,0 +1,94 @@
+<div class="outerContainer" fxLayout="column" fxLayoutAlign="center center">
+    <mat-toolbar>
+        <img class="logo" src="../../../assets/images/addressbook.jpeg" alt="Logo" routerLink=''>
+        <div>
+            <div class="employee" routerLink=''>ADDRESS</div>
+            <div class="payroll" routerLink=''>BOOK</div>
+        </div>
+      </mat-toolbar>
+      
+
+    <div [formGroup]="contactDetails" class="form-content">
+      <mat-card class="card">
+            <div class="address-header">
+                <div class="address-header-content">Person Address Form</div>
+                <a [routerLink]="['/address-list']" routerLinkActive="router-link-active" >
+                  <img class="cancel-button" src="../assets/images/cancel.jpeg"></a>
+            </div>
+
+            <br><br>
+            <div class="row-content">
+                <label class="label text" for="name">Full Name</label>
+                <input class="input" type="text" name="name" id="name" placeholder="Enter your full name here " formControlName="name" required>
+                <mat-error fxFlex
+                *ngIf="!contactDetails.controls['name'].valid && contactDetails.controls['name'].touched">
+                 Invalid Name
+              </mat-error>
+            </div>
+            <div class="row-content">
+                <label class="label text" for="number">Mobile Number</label>
+                <input class="input" type="text" name="mobile" id="mobile" formControlName="mobile" required>
+                <mat-error fxFlex
+                  *ngIf="!contactDetails.controls['mobile'].valid && contactDetails.controls['mobile'].touched">
+                  Invalid Mobile Number
+                </mat-error>
+            </div>
+            <div class="row-content address-label">
+                <label class="label text" for="address">Address</label>
+                <textarea class="input address-text" type="text" name="address" id="address" placeholder="Enter your address here" formControlName="address" required ></textarea>
+                <mat-error fxFlex
+                *ngIf="!contactDetails.controls['address'].valid && contactDetails.controls['address'].touched">
+                  Invalid Address
+                </mat-error>
+            </div>
+        <div class="row-content-exp">
+                <div class="oneRow-content">
+                  <label class="label text" for="city">City</label>
+                  <select class="select-input" id="city" name="city" formControlName="city" required>
+                    <option value="" selected disabled hidden>Select City</option>
+                    <option value="Amaravathi">Amaravathi</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bhopal">Bhopal</option>
+                  </select>
+              </div>
+              <div class="oneRow-content">
+                <label class="label text" for="state">State</label>
+                <select class="select-input" id="state" name="state" formControlName="state" required>
+                  <option value="" selected disabled hidden>Select State</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Telanagana">Telanagana</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                </select>
+              </div>
+              <div class="oneRow-content">
+                <label class="label text" for="zip">Zip</label>
+                <input class="input" type="text" name="zip" id="zip" formControlName="zip" required>
+              </div>
+                <mat-error fxFlex
+                *ngIf="!contactDetails.controls['city'].valid && contactDetails.controls['city'].touched" style="margin-left: 10px;">
+                  Invalid City
+                </mat-error>
+                <mat-error fxFlex
+                *ngIf="!contactDetails.controls['state'].valid && contactDetails.controls['state'].touched">
+                  Invalid State
+                </mat-error>
+                <mat-error fxFlex
+                *ngIf="!contactDetails.controls['zip'].valid && contactDetails.controls['zip'].touched">
+                  Invalid Zip
+                </mat-error>
+            </div>
+                <div class="submit-reset">
+                    <button type="button"  class="resetButton button reset"  (click)="reset()">Reset</button>
+                    <div style="margin-left: 10px;"></div>
+                    <button type="submit" class="button submitButton submit" *ngIf="!isEdit" id="submitButton" (click)="register()">Add</button>
+                    <button class = "update" *ngIf="isEdit" mat-raised-button color="primary" (click)="update()">Update</button>
+                </div>
+        </mat-card>
+    </div>
+</div>
