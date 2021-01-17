@@ -37,9 +37,10 @@ export class AddressbookformComponent implements OnInit {
     })
 
     this.route.params.subscribe(param =>{
+      console.log("param",param,"param.id ",param.id)
       if (param && param.id) {
         this.addressService.getEmployee(param.id).subscribe((response: any) => {
-          console.log(response);
+          console.log("response", response);
           this.id = param.id;
           this.isEdit = true;
           this.contactDetails.controls['name'].setValue(response.data.name);
@@ -51,10 +52,6 @@ export class AddressbookformComponent implements OnInit {
           });
         }
     })
-  }
-
-  newAddress():void{
-
   }
 
   onSubmit() {
@@ -99,6 +96,7 @@ export class AddressbookformComponent implements OnInit {
 
 
   update() {
+
     this.id= Number.parseInt(this.id);
     console.log("update id ",this.id);
     var addressDto = {
