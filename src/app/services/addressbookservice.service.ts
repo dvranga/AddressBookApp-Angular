@@ -11,23 +11,23 @@ export class AddressbookserviceService {
 
 
   getEmployee(id: any){
-    return this.http.get('http://localhost:8080/addressbook/get/' + id);
+    return this.http.get('http://3.136.161.38:8080/addressbook/get/' + id);
   }
   
   createContact(data: any){
-    return this.http.post('http://localhost:8080/addressbook/create',data);
+    return this.http.post('http://3.136.161.38:8080/addressbook/create',data);
   }
 
   getEmployeeList(){
-    return this.http.get('http://localhost:8080/addressbook/get');
+    return this.http.get('http://3.136.161.38:8080/addressbook/get');
   }
 
   deleteEmployee(id: any){
-    return this.http.delete('http://localhost:8080/addressbook/delete/' + id);
+    return this.http.delete('http://3.136.161.38:8080/addressbook/delete/' + id);
   }
 
   updateEmployee(data: any,id: any){
-    return this.http.put('http://localhost:8080/addressbook/update/'+id,data);
+    return this.http.put('http://3.136.161.38:8080/addressbook/update/'+id,data);
   }
   
 
